@@ -1,0 +1,32 @@
+{
+  "name": "wealth-mcp-skill",
+  "version": "0.1.0",
+  "description": "通过财富 MCP Gateway 提供基金、股票、市场、黄金和金融知识场景能力。",
+  "author": {
+    "name": "财富管理 MCP 团队"
+  },
+  "keywords": [
+    "finance",
+    "wealth-management",
+    "mcp",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "财富管理助手",
+    "shortDescription": "连接财富 MCP，提供基金、股票、市场与黄金分析能力",
+    "longDescription": "将财富 MCP Gateway 与场景化 Skills 一起交付，为基金分析、指标查询、市场解读、股票研究、黄金比较和金融知识问答提供统一入口。",
+    "developerName": "财富管理 MCP 团队",
+    "category": "Productivity",
+    "capabilities": [
+      "Read"
+    ],
+    "defaultPrompt": [
+      "分析一只基金的收益、风险和持仓特征。",
+      "查询股票、基金、市场或黄金的关键指标。",
+      "解释今天的市场变化和重要财经信息。"
+    ],
+    "brandColor": "#B42318"
+  }
+}

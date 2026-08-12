@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "wealth-ai-gateway": {
+      "transport": "sse",
+      "url": "http://mcp-gateway.jd.com/mcp/wealthAiGateway/sse"
+    }
+  }
+}

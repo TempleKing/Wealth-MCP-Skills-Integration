@@ -1,0 +1,13 @@
+interface:
+  display_name: "财富能力发现"
+  short_description: "识别财富场景并路由到所需 MCP 与专业 Skill"
+  default_prompt: "使用 $wealth-find-finance-skill 判断我的财富问题需要哪些工具和技能。"
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "wealth-ai-gateway"
+      description: "财富管理数据与分析 MCP Gateway"
+      transport: "sse"
+      url: "http://mcp-gateway.jd.com/mcp/wealthAiGateway/sse"
+policy:
+  allow_implicit_invocation: true
