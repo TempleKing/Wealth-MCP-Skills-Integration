@@ -1,0 +1,7 @@
+{
+  "wealth-ai-gateway": {
+    "transport": "sse",
+    "endpoint": "http://mcp-gateway.jd.com/mcp/wealthAiGateway/sse",
+    "description": "内部财富管理 MCP Gateway"
+  }
+}

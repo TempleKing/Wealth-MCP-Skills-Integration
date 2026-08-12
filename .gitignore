@@ -24,3 +24,8 @@ node_modules/
 dist/
 build/
 
+# Runtime request files and local Client state
+scripts/request-*.json
+scripts/update-state.json
+config.json
+

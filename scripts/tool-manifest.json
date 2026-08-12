@@ -1,0 +1,1210 @@
+{
+  "schema_version": 1,
+  "server_type": "wealth-ai-gateway",
+  "server_info": {
+    "name": "japi-gateway-mcp-server",
+    "version": "1.0.0"
+  },
+  "protocol_version": "2024-11-05",
+  "tools": [
+    {
+      "description": "查询行情数据",
+      "inputSchema": {
+        "properties": {
+          "marketDataQueryEnhanceRequest": {
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "query": {
+                "description": "检索券商及研究机构报告的关键词，如行业名称、宏观经济指标等",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryMarketData_3101"
+    },
+    {
+      "description": "基金分析",
+      "inputSchema": {
+        "properties": {
+          "fundAnalysisEnhanceRequest": {
+            "type": "object",
+            "properties": {
+              "fundCodeList": {
+                "description": "基金/股票/积存金 编码列表",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "fundNameList": {
+                "description": "基金/股票/积存金 名称列表",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "fundAnalysis_3103"
+    },
+    {
+      "description": "根据 FaqMcpRequest 对象查询 FAQ 信息。",
+      "inputSchema": {
+        "properties": {
+          "faqMcpRequest": {
+            "description": "包含查询条件的 FaqMcpRequest 对象。",
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "query": {
+                "description": "查询内容",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryFaq_3104"
+    },
+    {
+      "description": "查询KYC信息。",
+      "inputSchema": {
+        "properties": {
+          "kycInfoMcpRequest": {
+            "description": "KYC信息请求对象，包含查询所需的参数。",
+            "type": "object",
+            "properties": {
+              "size": {
+                "format": "int32",
+                "description": "基金数量上限，默认6",
+                "type": "integer"
+              },
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "withHoldDetails": {
+                "description": "是否返回持仓分析数据，默认false",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "withHoldDetails",
+              "size"
+            ]
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryKycInfo_3105"
+    },
+    {
+      "description": "根据市场分析MCP请求查询市场分析结果。",
+      "inputSchema": {
+        "properties": {
+          "marketAnalysisMcpRequest": {
+            "description": "市场分析MCP请求对象，包含查询条件。",
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "assetType": {
+                "description": "市场类型列表\n      枚举：债券、A股、美股、港股、美债、商品黄金、商品原油",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryMarketAnalysis_3106"
+    },
+    {
+      "description": "查询KYP信息",
+      "inputSchema": {
+        "properties": {
+          "kypInfoMcpRequest": {
+            "description": "KYP信息查询请求对象",
+            "type": "object",
+            "properties": {
+              "fundCodeList": {
+                "description": "基金代码列表",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "pageSize": {
+                "format": "int32",
+                "type": "integer"
+              },
+              "currentPage": {
+                "format": "int32",
+                "type": "integer"
+              },
+              "skuIdList": {
+                "description": "skuId代码列表",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "fundNameList": {
+                "description": "基金名称列表",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "pageSize",
+              "currentPage"
+            ]
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryKypInfo_3107"
+    },
+    {
+      "description": "查询组件信息。",
+      "inputSchema": {
+        "properties": {
+          "componentInfoMcpRequest": {
+            "description": "组件信息请求对象。",
+            "type": "object",
+            "properties": {
+              "slots": {
+                "description": "存储请求中携带的槽信息，用于填充模板或执行特定操作。",
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "resourceCode": {
+                "description": "资源代码（组件代码），用于标识请求的资源。",
+                "type": "string"
+              },
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "additional": {
+                "description": "存储请求中额外的信息，用于扩展或自定义请求。\n      fundUtmParam(二级渠道) + fundUtmSource（一级渠道） 在 additional 中",
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "message": {
+                "description": "请求的消息内容。",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryComponentInfo_3108"
+    },
+    {
+      "description": "查询家庭基金分配信息(四笔钱)",
+      "inputSchema": {
+        "properties": {
+          "assertAllocationMcpRequest": {
+            "description": "分配请求参数",
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "query": {
+                "description": "查询内容",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryFamilyFundsAllocation_3340"
+    },
+    {
+      "description": "获取资产配置建议。",
+      "inputSchema": {
+        "properties": {
+          "assertAllocationMcpRequest": {
+            "description": "简单的MCP增强请求对象，包含查询条件。",
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "query": {
+                "description": "查询内容",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryAssetAllocationSuggestion_3341"
+    },
+    {
+      "description": "Rag资讯查询",
+      "inputSchema": {
+        "properties": {
+          "ragNewsQueryRequest": {
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "query": {
+                "description": "问题",
+                "type": "string"
+              },
+              "maxSize": {
+                "format": "int32",
+                "description": "最大返回条数",
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "search_3347"
+    },
+    {
+      "description": "查询组件信息。",
+      "inputSchema": {
+        "properties": {
+          "componentInfoEnhanceRequest": {
+            "description": "组件信息请求对象。",
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "name": {
+                "description": "组件名称",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "",
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "parameters": {
+                "description": "参数信息, 格式为json字符串",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryComponentInfo_4206"
+    },
+    {
+      "description": "    训练数据查询端点 - 将 SSE 流式输出转为非流式 JSON 响应\n    \n    用于内部模型训练数据获取场景，接收 pin、requestId、history 和 query，\n    调用底层 Agent 服务，并将 SSE 流式响应聚合为非流式 JSON 输出。\n    \n    实现方式：\n        使用 TrainingQueryService 进行业务编排，\n        TrainingQueryCaller 负责 SSE 流式转非流式聚合。\n    \n    入参格式:\n        - pin: 用户 PIN\n        - requestId: 请求 ID\n        - history: 历史对话列表\n        - query: 当前用户问题\n        - additionParams: 额外的业务参数,如urlParams等\n        \n    出参格式:\n        - code: 状态码，\"00000000\" 表示成功\n        - data: 响应数据\n        - success: 是否成功\n        - message: 结果消息",
+      "inputSchema": {
+        "properties": {
+          "root": {
+            "type": "object",
+            "properties": {
+              "additionParams": {
+                "description": "额外业务参数",
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "agentId": {
+                "description": "应答agent唯一标识",
+                "type": "string"
+              },
+              "pin": {
+                "description": "用户PIN",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "对话请求ID",
+                "type": "string"
+              },
+              "query": {
+                "description": "用户提问内容",
+                "type": "string"
+              },
+              "history": {
+                "description": "对话历史记录",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "role": {
+                      "description": "对话历史角色；user: 用户, assistant: agent助手",
+                      "type": "string"
+                    },
+                    "content": {
+                      "description": "对话内容",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "pin",
+              "requestId",
+              "history",
+              "agentId",
+              "query"
+            ]
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "requestMethod_5731"
+    },
+    {
+      "description": "基金推荐",
+      "inputSchema": {
+        "properties": {
+          "fundRecommendEnhanceRequest": {
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "query": {
+                "description": "查询内容",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "fundRecommend_5756"
+    },
+    {
+      "description": "个人指标查询",
+      "inputSchema": {
+        "properties": {
+          "request": {
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "query": {
+                "description": "查询内容",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryPersonalIndex_6139"
+    },
+    {
+      "description": "查询基金实时估值",
+      "inputSchema": {
+        "properties": {
+          "fundValuationQueryRequest": {
+            "description": "基金实时估值查询请求",
+            "type": "object",
+            "properties": {
+              "fundCodes": {
+                "description": "基金代码列表",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryFundValuation_6326"
+    },
+    {
+      "description": "JoyAsk接口查询",
+      "inputSchema": {
+        "properties": {
+          "joyAskMcpRequest": {
+            "description": "JoyAsk接口请求对象",
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "query": {
+                "description": "查询参数",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "joyAsk_6375"
+    },
+    {
+      "description": "查询股票KYP信息",
+      "inputSchema": {
+        "properties": {
+          "stockKypInfoMcpRequest": {
+            "description": "股票KYP信息查询请求对象",
+            "type": "object",
+            "properties": {
+              "skInnerCodeList": {
+                "description": "股票代码列表（精准匹配）",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "metricList": {
+                "description": "指标模块（list，中文名：行业亮点、技术面分析、估值分析、机构评级、资金流向、市场资讯、财务分析、整体分析）",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "skShortNameList": {
+                "description": "股票简称列表（模糊匹配，取模糊匹配的结果的第一个）",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryStockKypInfo_7192"
+    },
+    {
+      "description": "查询KYM数据-市场涨跌概览",
+      "inputSchema": {
+        "properties": {
+          "request": {
+            "description": "市场涨跌概览查询请求对象",
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryMarketOverview_7193"
+    },
+    {
+      "description": "板块研判查询（从mkt_prediction_lv2_test索引查询板块的基本面和技术面分析）",
+      "inputSchema": {
+        "properties": {
+          "boardAnalysisMcpRequest": {
+            "description": "板块研判查询请求对象",
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "boardCode": {
+                "description": "板块代码（精准匹配）",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "boardName": {
+                "description": "板块名称（模糊匹配，取模糊匹配结果的第一个）",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryBoardAnalysis_7221"
+    },
+    {
+      "description": "板块选基金（根据板块列表和是否场内基金）",
+      "inputSchema": {
+        "properties": {
+          "boardFundQueryRequest": {
+            "description": "板块选基金查询请求对象",
+            "type": "object",
+            "properties": {
+              "isExchangeFund": {
+                "format": "int32",
+                "description": "是否场内基金：1表示必须为场内基金，0表示必须为场外基金，null表示场内场外基金均可",
+                "type": "integer"
+              },
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "boardList": {
+                "description": "板块列表，如：[\"成长\",\"军工\",\"半导体\"]",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryBoardFund_7222"
+    },
+    {
+      "description": "优选板块查询（从cf_sector_sort_info_with_dt索引查询优选板块列表）       该接口不需要任何查询参数,只需要调用即可返回优选板块列表",
+      "inputSchema": {
+        "properties": {
+          "topBoardMcpRequest": {
+            "description": "优选板块查询请求对象(无需填写参数)",
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryTopBoard_7223"
+    },
+    {
+      "description": "黄金金价查询（支持实时/历史）",
+      "inputSchema": {
+        "properties": {
+          "goldPriceQueryMcpRequest": {
+            "description": "黄金金价查询请求对象",
+            "type": "object",
+            "properties": {
+              "queryDate": {
+                "description": "查询日期（可选），格式 yyyy-MM-dd",
+                "type": "string"
+              },
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryGoldPrice_7224"
+    },
+    {
+      "description": "指标选基MCP",
+      "inputSchema": {
+        "properties": {
+          "arg0": {
+            "type": "object",
+            "properties": {
+              "size": {
+                "format": "int32",
+                "description": "返回数量，默认10",
+                "type": "integer"
+              },
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "query": {
+                "description": "用户自然语言查询",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryFundCodes_7361"
+    },
+    {
+      "description": "page",
+      "inputSchema": {
+        "properties": {
+          "gatewayRequest": {
+            "type": "object",
+            "properties": {
+              "request": {
+                "type": "object",
+                "properties": {
+                  "applyNo": {
+                    "default": "",
+                    "description": "",
+                    "type": "string"
+                  }
+                }
+              },
+              "resource": {
+                "type": "string"
+              },
+              "systemCode": {
+                "type": "string"
+              },
+              "operateUser": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "page_7422"
+    },
+    {
+      "description": "记忆系统-用户标签信息查询",
+      "inputSchema": {
+        "properties": {
+          "request": {
+            "description": "用户记忆查询请求对象",
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryUserMemory_7495"
+    },
+    {
+      "description": "证券行情查询（市场指数和股票实时/历史行情）",
+      "inputSchema": {
+        "properties": {
+          "secuQuoteQueryRequest": {
+            "description": "证券行情查询请求",
+            "type": "object",
+            "properties": {
+              "queryDate": {
+                "description": "查询行情价格的时间（非必传项）\n格式：yyyy-MM-dd\n时间为空或当天日期时，返回实时行情；否则按照日期查历史行情",
+                "type": "string"
+              },
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "secuNames": {
+                "description": "证券名称列表（支持模糊搜索，证券可以是股票或指数）",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "secuCodes": {
+                "description": "证券代码列表（支持精确检索，证券可以是股票或指数）\n判定证券代码是否带有后缀：若带有后缀则匹配secu_full_code，若不带后缀则匹配secu_code\n当证券名称和证券代码同时出现时，优先使用证券代码；当证券代码无结果时，使用证券名称",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "querySecuQuote_7681"
+    },
+    {
+      "description": "指标选股（仅NL2SQL，不进行语义召回兜底）       仿照",
+      "inputSchema": {
+        "properties": {
+          "request": {
+            "description": "查询请求",
+            "type": "object",
+            "properties": {
+              "size": {
+                "format": "int32",
+                "description": "返回数量，默认10",
+                "type": "integer"
+              },
+              "pin": {
+                "description": "用户pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "query": {
+                "description": "用户自然语言查询",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryStockCodes_7724"
+    },
+    {
+      "description": "记忆系统-财富域用户画像查询       对应 jxb-content-service 场景 memory_profile_wealth_history,取 wealth 域 chat-history 源的画像 summary,       供首页推荐/陪伴等财富域画像消费方使用。",
+      "inputSchema": {
+        "properties": {
+          "request": {
+            "description": "用户画像查询请求对象",
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryWealthUserMemory_8781"
+    },
+    {
+      "description": "任意门页面搜索，查询可供业务域按需引用的页面卡片信息。",
+      "inputSchema": {
+        "properties": {
+          "request": {
+            "description": "页面搜索请求对象",
+            "type": "object",
+            "properties": {
+              "topK": {
+                "format": "int32",
+                "description": "返回条数，取值 1–20；展示建议不超过 10 条。",
+                "type": "integer"
+              },
+              "mode": {
+                "type": "string"
+              },
+              "caller": {
+                "type": "string"
+              },
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "query": {
+                "description": "用户query",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "searchFunctionNavigation_9564"
+    },
+    {
+      "description": "CPL策略查询",
+      "inputSchema": {
+        "properties": {
+          "cplStrategyMcpRequest": {
+            "description": "CPL策略查询请求",
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryCplStrategy_9613"
+    },
+    {
+      "description": "记忆系统-用户画像总结查询(V2)       对应 jxb-content-service 场景 memory_profile,直连 JimKV 读用户画像 4 段总结       即时状态(realtime_summary)/ 稳定状态(stable_summary)/ 财富域(wealth_summary)/ 全部总结(overall_su",
+      "inputSchema": {
+        "properties": {
+          "request": {
+            "description": "用户画像查询请求对象(pin 必填)",
+            "type": "object",
+            "properties": {
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryUserMemoryProfile_9654"
+    },
+    {
+      "description": "查询基金经理观点",
+      "inputSchema": {
+        "properties": {
+          "request": {
+            "description": "基金经理观点查询请求参数",
+            "type": "object",
+            "properties": {
+              "assetNames": {
+                "description": "资产名称列表（精确查询）",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "managerIds": {
+                "description": "基金经理ID列表（精确查询）",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "sectorNames": {
+                "description": "板块名称列表（模糊查询）",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "managerName": {
+                "description": "基金经理名称（模糊查询）",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "queryFundManagerViewpoints_9667"
+    },
+    {
+      "description": "黄金价格换算",
+      "inputSchema": {
+        "properties": {
+          "request": {
+            "description": "黄金价格换算请求参数",
+            "type": "object",
+            "properties": {
+              "goldPrice": {
+                "description": "黄金价格p（美元）",
+                "type": "string"
+              },
+              "pin": {
+                "description": "pin",
+                "type": "string"
+              },
+              "exchangeRate": {
+                "description": "外币对人民币汇率u，可为空；为空时默认查询美元离岸人民币汇率",
+                "type": "string"
+              },
+              "requestId": {
+                "description": "查询唯一标识",
+                "type": "string"
+              },
+              "extParams": {
+                "description": "扩展参数",
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "weightUnit": {
+                "description": "黄金重量单位，枚举值：[盎司、吨]，默认盎司",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "transGoldPrice_9683"
+    }
+  ]
+}

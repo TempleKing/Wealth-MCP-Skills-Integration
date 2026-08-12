@@ -1,0 +1,7 @@
+interface:
+  display_name: "财富管理 MCP"
+  short_description: "通过本地 Client 查询基金、股票、市场与黄金数据"
+  default_prompt: "使用 $wealth-mcp-skill 查询一只股票的最新行情，并注明数据时间。"
+
+policy:
+  allow_implicit_invocation: true
