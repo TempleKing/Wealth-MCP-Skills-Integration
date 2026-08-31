@@ -1,4 +1,4 @@
-# Wealth MCP Skill Demo
+# Wealth MCP Skills Integration
 
 An installable AI agent skill bundle that connects to a remote wealth-management MCP gateway through a lightweight local Node.js client.
 
